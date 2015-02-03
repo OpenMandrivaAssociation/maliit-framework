@@ -98,7 +98,8 @@ export CXX=g++
              MALIIT_ENABLE_MULTITOUCH=true \
              CONFIG+=disable-gtk-cache-update CONFIG+=disable-preedit \
              CONFIG+=enable-hunspell CONFIG+=enable-dbus-activation \
-	     CONFIG+=disable-background-translucency
+	     CONFIG+=disable-background-translucency \
+	     CONFIG+=notests
 
 %make
 
@@ -140,7 +141,7 @@ mv %{buildroot}%{_docdir}/%{name}/* __tmp_doc
 %{_includedir}/maliit/
 %{_libdir}/libmaliit*.so
 %{_libdir}/pkgconfig/maliit*.pc
-%{_libdir}/qt4/mkspecs/features/maliit*
+%{qt4dir}/mkspecs/features/maliit*
 %dir %{_datadir}/gir-1.0
 %{_datadir}/gir-1.0/Maliit-1.0.gir
 
