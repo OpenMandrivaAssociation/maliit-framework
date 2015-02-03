@@ -1,3 +1,5 @@
+%define Werror_cflags %nil
+%define _fortify_cflags %nil
 Name:           maliit-framework
 Version:        0.94.2
 Release:	1
@@ -7,6 +9,7 @@ Group:          System/Libraries
 License:        LGPLv2
 URL:            http://maliit.org/
 Source0:        http://maliit.org/releases/%{name}/%{name}-%{version}.tar.bz2
+Patch0:		xfixes-maliit-framework.patch
 
 BuildRequires:	doxygen
 BuildRequires:	graphviz
@@ -85,6 +88,7 @@ This package contains tests and examples for %{name}.
 
 %prep
 %setup -q
+%apply_patches
 
 %build
 export CC=gcc

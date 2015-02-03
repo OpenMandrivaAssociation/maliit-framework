@@ -1,0 +1,13 @@
+diff --git a/maliit-plugins-quick/input-method/input-method.pro b/maliit-plugins-quick/input-method/input-method.pro
+index 50962b3..ddb1aec 100644
+--- a/maliit-plugins-quick/input-method/input-method.pro
++++ b/maliit-plugins-quick/input-method/input-method.pro
+@@ -33,7 +33,7 @@ contains(QT_MAJOR_VERSION, 5) {
+ 
+ CONFIG += link_pkgconfig
+ 
+-PKGCONFIG += xcb xcb-xfixes
++PKGCONFIG += xcb xfixes xcb-xfixes
+ 
+ # coverage flags are off per default, but can be turned on via qmake COV_OPTION=on
+ for(OPTION,$$list($$lower($$COV_OPTION))){
