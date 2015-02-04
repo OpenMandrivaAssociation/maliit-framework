@@ -91,10 +91,9 @@ This package contains tests and examples for %{name}.
 %apply_patches
 
 %build
-export CC=gcc
-export CXX=g++
 %qmake_qt4 -r MALIIT_VERSION=%{version} PREFIX=%{_prefix} \
              BINDIR=%{_bindir} LIBDIR=%{_libdir} INCLUDEDIR=%{_includedir} \
+             QMAKE_CC=gcc QMAKE_CXX=g++ \
              MALIIT_ENABLE_MULTITOUCH=true \
              CONFIG+=disable-gtk-cache-update CONFIG+=disable-preedit \
              CONFIG+=enable-hunspell CONFIG+=enable-dbus-activation \
