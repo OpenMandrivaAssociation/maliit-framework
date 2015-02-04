@@ -1,5 +1,17 @@
 %define Werror_cflags %nil
 %define _fortify_cflags %nil
+
+%define major	0
+%define minor	94
+%define libname	%mklibname maliit %{major}
+%define devname	%mklibname -d maliit
+
+%define libconn	%mklibname maliit-connection %{major}
+%define libglib	%mklibname maliit-glib %{major}
+%define libquick %mklibname maliit-plugins-quick %{major}
+%define libsett %mklibname maliit-settings %{major}
+%define libplug %mklibname maliit-plugins %{major}
+
 Name:           maliit-framework
 Version:        0.94.2
 Release:	1
@@ -35,36 +47,74 @@ plugin-based client-server architecture where applications act as clients and
 communicate with the Maliit server via input context plugins. The communication
 link currently uses D-Bus.
 
+%package -n %{libname}
+Summary: Input method module for Qt 4 based on Maliit framework
+Group: System/Libraries
+
+%description -n %{libname}
+Libraries for Maliit framework.
+
+%package -n %{libconn}
+Summary: Input method module for Qt 4 based on Maliit framework
+Group: System/Libraries
+
+%description -n %{libconn}
+Libraries for Maliit framework.
+
+%package -n %{libquick}
+Summary: Input method module for Qt 4 based on Maliit framework
+Group: System/Libraries
+
+%description -n %{libquick}
+Libraries for Maliit framework.
+
+%package -n %{libglib}
+Summary: Input method module for Qt 4 based on Maliit framework
+Group: System/Libraries
+
+%description -n %{libglib}
+Libraries for Maliit framework.
+
+%package -n %{libsett}
+Summary: Input method module for Qt 4 based on Maliit framework
+Group: System/Libraries
+
+%description -n %{libsett}
+Libraries for Maliit framework.
+
+%package -n %{libplug}
+Summary: Input method module for Qt 4 based on Maliit framework
+Group: System/Libraries
+
+%description -n %{libplug}
+Libraries for Maliit framework.
+
 %package qt4
 Summary: Input method module for Qt 4 based on Maliit framework
-Group: System Environment/Libraries
-Requires: %{name}%{?_isa} = %{version}-%{release}
+Group: System/Libraries
 
 %description qt4
 Input method module for Qt 4 based on Maliit framework.
 
 %package gtk2
 Summary: Input method module for GTK+ 2 based on Maliit framework
-Group: System Environment/Libraries
-Requires: %{name}%{?_isa} = %{version}-%{release}
+Group: System/Libraries
 
 %description gtk2
 Input method module for GTK+ 2 based on Maliit framework.
 
 %package gtk3
 Summary: Input method module for GTK+ 3 based on Maliit framework
-Group: System Environment/Libraries
-Requires: %{name}%{?_isa} = %{version}-%{release}
+Group: System/Libraries
 
 %description gtk3
 Input method module for GTK+ 3 based on Maliit framework.
 
-%package devel
+%package -n %{devname}
 Summary: Development files for %{name}
-Group: Development/Libraries
-Requires: %{name}%{?_isa} = %{version}-%{release}
+Group: Development/C
 
-%description devel
+%description -n %{devname}
 Files for development with %{name}.
 
 %package docs
@@ -77,11 +127,7 @@ This package contains developer documentation for %{name}.
 
 %package examples
 Summary: Tests and examples for %{name}
-Group: Development/Libraries
-Requires: %{name}%{?_isa} = %{version}-%{release}
-Requires: %{name}-gtk2%{?_isa} = %{version}-%{release}
-Requires: %{name}-gtk3%{?_isa} = %{version}-%{release}
-Requires: %{name}-qt4%{?_isa} = %{version}-%{release}
+Group: System/Libraries
 
 %description examples
 This package contains tests and examples for %{name}.
@@ -118,7 +164,6 @@ mv %{buildroot}%{_docdir}/%{name}/* __tmp_doc
 %files
 %doc LICENSE.LGPL README NEWS
 %{_bindir}/maliit-server
-%{_libdir}/libmaliit*.so.*
 %dir %{_libdir}/maliit
 %dir %{_libdir}/maliit/plugins
 %dir %{_libdir}/maliit/plugins/factories
@@ -126,6 +171,24 @@ mv %{buildroot}%{_docdir}/%{name}/* __tmp_doc
 %{_libdir}/girepository-1.0/Maliit-1.0.typelib
 %{_datadir}/maliit/
 %{_datadir}/dbus-1/services/org.maliit.server.service
+
+%files -n %{libname}
+%{_libdir}/libmaliit.so.%{major}*
+
+%files -n %{libconn}
+%{_libdir}/libmaliit-connection.so.%{major}*
+
+%files -n %{libglib}
+%{_libdir}/libmaliit-glib.so.%{major}*
+
+%files -n %{libquick}
+%{_libdir}/libmaliit-plugins-quick.so.%{major}*
+
+%files -n %{libsett}
+%{_libdir}/libmaliit-settings.so.%{major}*
+
+%files -n %{libplug}
+%{_libdir}/libmaliit-plugins.so.%{major}*
 
 %files qt4
 %{_libdir}/qt4/plugins/inputmethods/libmaliit*
@@ -136,7 +199,7 @@ mv %{buildroot}%{_docdir}/%{name}/* __tmp_doc
 %files gtk3
 %{_libdir}/gtk-3.0/3.0.0/immodules/libim-maliit.so
 
-%files devel
+%files -n %{devname}
 %{_includedir}/maliit/
 %{_libdir}/libmaliit*.so
 %{_libdir}/pkgconfig/maliit*.pc
