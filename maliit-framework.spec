@@ -14,7 +14,7 @@
 
 Name:           maliit-framework
 Version:        0.94.2
-Release:	1
+Release:	2
 Summary:        Input method framework
 
 Group:          System/Libraries
@@ -47,89 +47,98 @@ plugin-based client-server architecture where applications act as clients and
 communicate with the Maliit server via input context plugins. The communication
 link currently uses D-Bus.
 
-%package -n %{libname}
-Summary: Input method module for Qt 4 based on Maliit framework
-Group: System/Libraries
+%package -n	%{libname}
+Summary:	Input method module for Qt 4 based on Maliit framework
+Group:		System/Libraries
 
 %description -n %{libname}
 Libraries for Maliit framework.
 
-%package -n %{libconn}
-Summary: Input method module for Qt 4 based on Maliit framework
-Group: System/Libraries
+%package -n	%{libconn}
+Summary:	Input method module for Qt 4 based on Maliit framework
+Group:		System/Libraries
 
 %description -n %{libconn}
 Libraries for Maliit framework.
 
-%package -n %{libquick}
-Summary: Input method module for Qt 4 based on Maliit framework
-Group: System/Libraries
+%package -n	%{libquick}
+Summary:	Input method module for Qt 4 based on Maliit framework
+Group:		System/Libraries
 
 %description -n %{libquick}
 Libraries for Maliit framework.
 
-%package -n %{libglib}
-Summary: Input method module for Qt 4 based on Maliit framework
-Group: System/Libraries
+%package -n	%{libglib}
+Summary:	Input method module for Qt 4 based on Maliit framework
+Group:		System/Libraries
 
 %description -n %{libglib}
 Libraries for Maliit framework.
 
-%package -n %{libsett}
-Summary: Input method module for Qt 4 based on Maliit framework
-Group: System/Libraries
+%package -n	%{libsett}
+Summary:	Input method module for Qt 4 based on Maliit framework
+Group:		System/Libraries
 
 %description -n %{libsett}
 Libraries for Maliit framework.
 
-%package -n %{libplug}
-Summary: Input method module for Qt 4 based on Maliit framework
-Group: System/Libraries
+%package -n	%{libplug}
+Summary:	Input method module for Qt 4 based on Maliit framework
+Group:		System/Libraries
 
 %description -n %{libplug}
 Libraries for Maliit framework.
 
-%package qt4
-Summary: Input method module for Qt 4 based on Maliit framework
-Group: System/Libraries
+%package	qt4
+Summary:	Input method module for Qt 4 based on Maliit framework
+Group:		System/Libraries
+Requires:	%{libname} = %{EVRD}
 
-%description qt4
+%description	 qt4
 Input method module for Qt 4 based on Maliit framework.
 
-%package gtk2
-Summary: Input method module for GTK+ 2 based on Maliit framework
-Group: System/Libraries
+%package	gtk2
+Summary:	Input method module for GTK+ 2 based on Maliit framework
+Group:		System/Libraries
+Requires:	%{libname} = %{EVRD}
 
-%description gtk2
+%description	gtk2
 Input method module for GTK+ 2 based on Maliit framework.
 
-%package gtk3
-Summary: Input method module for GTK+ 3 based on Maliit framework
-Group: System/Libraries
+%package	gtk3
+Summary:	Input method module for GTK+ 3 based on Maliit framework
+Group:		System/Libraries
+Requires:	%{libname} = %{EVRD}
 
-%description gtk3
+%description	gtk3
 Input method module for GTK+ 3 based on Maliit framework.
 
-%package -n %{devname}
-Summary: Development files for %{name}
-Group: Development/C
+%package -n	%{devname}
+Summary:	Development files for %{name}
+Group:		Development/C
+Requires:	%{libname} = %{EVRD}
+Requires:	%{libconn} = %{EVRD}
+Requires:	%{libglib} = %{EVRD}
+Requires:	%{libquick} = %{EVRD}
+Requires:	%{libsett} = %{EVRD}
+Requires:	%{libplug} = %{EVRD}
 
 %description -n %{devname}
 Files for development with %{name}.
 
-%package docs
-Summary: Documentation files for %{name}
-Group: Documentation
-BuildArch: noarch
+%package	docs
+Summary:	Documentation files for %{name}
+Group:		Documentation
+BuildArch:	noarch
 
-%description docs
+%description	docs
 This package contains developer documentation for %{name}.
 
-%package examples
-Summary: Tests and examples for %{name}
-Group: System/Libraries
+%package	examples
+Summary:	Tests and examples for %{name}
+Group:		System/Libraries
 
-%description examples
+%description	examples
 This package contains tests and examples for %{name}.
 
 %prep
