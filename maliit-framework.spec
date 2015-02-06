@@ -14,7 +14,7 @@
 
 Name:           maliit-framework
 Version:        0.94.2
-Release:	2
+Release:	3
 Summary:        Input method framework
 
 Group:          System/Libraries
