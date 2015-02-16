@@ -1,0 +1,20 @@
+Description: Make keyboard hide when Qt input widget lost focus
+ In the Qt input context, the hideInputMethod method is called when the
+ focused widget is NULL. By doing so, we have the same behavior as with GTK+
+ programs.
+Author: Nicolas Bourdaud@gmail.com
+Bug-Debian: http://bugs.debian.org/706609
+Forwarded: no
+Last-Update: 2013-05-02
+--- a/input-context/maliit-input-context/minputcontext.cpp
++++ b/input-context/maliit-input-context/minputcontext.cpp
+@@ -477,6 +477,9 @@
+     // show or hide Copy/Paste button on input method server
+     notifyCopyPasteState();
+ 
++    if (!focused)
++        imServer->hideInputMethod();
++
+     if (inputPanelState == InputPanelShowPending && focused) {
+         sipHideTimer.stop();
+         imServer->showInputMethod();
