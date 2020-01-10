@@ -144,7 +144,7 @@ This package contains tests and examples for %{name}.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 %build
 %qmake_qt4 -r MALIIT_VERSION=%{version} PREFIX=%{_prefix} \
