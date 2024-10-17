@@ -19,7 +19,7 @@ Summary:        Input method framework
 
 Group:          System/Libraries
 License:        LGPLv2
-URL:            http://maliit.org/
+URL:            https://maliit.org/
 Source0:        http://maliit.org/releases/%{name}/%{name}-%{version}.tar.bz2
 Patch0:		xfixes-maliit-framework.patch
 Patch1:		hide-qt-input.patch
