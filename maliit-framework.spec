@@ -24,6 +24,7 @@ Source0:        http://maliit.org/releases/%{name}/%{name}-%{version}.tar.bz2
 Patch0:		xfixes-maliit-framework.patch
 Patch1:		hide-qt-input.patch
 
+BuildRequires:	make
 BuildRequires:	doxygen
 BuildRequires:	graphviz
 BuildRequires:	gtk-doc
